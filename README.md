@@ -11,7 +11,7 @@ Prof. Adriano de Jesus Alves
 
 # CheckList
 - [x] Criar conexão com o BD
-- [ ] Criar classes de modelo
+- [x] Criar classes de modelo
 - [ ] Criar classes de DAO
 - [ ] Criar tela principal
 - [ ] Criar pesquisa e cadastro de generos
