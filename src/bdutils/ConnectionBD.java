@@ -2,18 +2,25 @@ package bdutils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ConnectionBD {
 
 	private static Connection conexao;
 	private static String erro;
 	
-	public static Connection getConexao() {
+	private static Connection getConexao() {
 		if(conexao == null)
 			createConnection();
 		
 		return conexao;
+	}
+	
+	public PreparedStatement getPrepareStatement(String sql) throws SQLException {
+		System.out.println(sql);
+		return getConexao().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 	}
 	
 	public static String getErro() {
