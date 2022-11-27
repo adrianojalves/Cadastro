@@ -55,5 +55,10 @@ public class Fita {
 	public void setDuracao(String duracao) {
 		this.duracao = duracao;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Fita [id=" + id + ", nome=" + nome + ", anoLancamento=" + anoLancamento + ", sinopse=" + sinopse
+				+ ", duracao=" + duracao + "]";
+	}
 }
