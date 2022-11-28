@@ -30,8 +30,8 @@ public class ConnectionBD {
 	public static void createConnection() {
 		String driverName = "com.mysql.cj.jdbc.Driver"; //classe do driver de conexão
 		
-        String stringConexao = "jdbc:mysql://localhost/Cadastro?" +
-                				"user=root&password=pamonha&useSSL=false";
+        String stringConexao = "jdbc:mysql://45.15.24.198:33306/Cadastro?" +
+                				"user=alunos&password=@alun0s&useSSL=false";
 
         try {
 			Class.forName(driverName).newInstance(); //Carregando driver

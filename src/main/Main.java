@@ -1,26 +1,33 @@
 package main;
 
-import dao.FitaDao;
-import dao.FitaGenerosDao;
+import dao.GeneroDao;
 import exceptions.DaoExceptions;
-import model.Fita;
-import model.FitaGenero;
 import model.Genero;
 
 public class Main {
 
 	public static void main(String args[]) {
-		/*GeneroDao dao = new GeneroDao();
-		Genero g1 = new Genero(null, "Drama");
-		
+		GeneroDao dao = new GeneroDao();
 		try {
+			Genero g1 = new Genero(null, "Drama");
+		
 			g1 = dao.insert(g1);
 			System.out.println(g1);
+			
+			Genero g2 = new Genero(null, "Comédia");
+			
+			g2 = dao.insert(g2);
+			System.out.println(g2);
+			
+			Genero g3 = new Genero(null, "Ficção Científica");
+
+			g3 = dao.insert(g3);
+			System.out.println(g3);
 		} catch (DaoExceptions e) {
 			System.out.println(e.getMessage());
 		}
 		
-		Genero g2 = new Genero(null, "te");
+		/*Genero g2 = new Genero(null, "te");
 		try {
 			g2 = dao.insert(g2);
 		} catch (DaoExceptions e) {
@@ -46,7 +53,7 @@ public class Main {
 			System.out.println(e.getMessage());
 		}*/
 		
-		FitaDao daoFita = new FitaDao();
+		/*FitaDao daoFita = new FitaDao();
 		
 		Fita f = new Fita();
 		f.setAnoLancamento(2022);
