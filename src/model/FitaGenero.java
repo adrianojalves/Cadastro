@@ -25,5 +25,9 @@ public class FitaGenero {
 	public void setCodGenero(Genero codGenero) {
 		this.codGenero = codGenero;
 	}
+	@Override
+	public String toString() {
+		return "FitaGenero [codFita=" + codFita + ", codGenero=" + codGenero + "]";
+	}
 	
 }

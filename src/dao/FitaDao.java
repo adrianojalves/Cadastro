@@ -10,7 +10,7 @@ import bdutils.ConnectionBD;
 import exceptions.DaoExceptions;
 import model.Fita;
 
-public class FitasDao {
+public class FitaDao {
 
 	private static final String TABLE = "fitas";
 	

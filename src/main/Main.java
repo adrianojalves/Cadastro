@@ -1,8 +1,11 @@
 package main;
 
-import dao.FitasDao;
+import dao.FitaDao;
+import dao.FitaGenerosDao;
 import exceptions.DaoExceptions;
 import model.Fita;
+import model.FitaGenero;
+import model.Genero;
 
 public class Main {
 
@@ -43,12 +46,13 @@ public class Main {
 			System.out.println(e.getMessage());
 		}*/
 		
-		FitasDao daoFita = new FitasDao();
+		FitaDao daoFita = new FitaDao();
 		
 		Fita f = new Fita();
-		f.setAnoLancamento(1985);
+		f.setAnoLancamento(2022);
 		f.setDuracao("01:30");
-		f.setNome("De volta para o futuro");
+		f.setNome("Dr Estranho 2");
+		f.setSinopse("A Wanda tá doidinha da cabeça e sai destruindo geral em vários universos");
 		
 		try {
 			f = daoFita.insert(f);
@@ -57,7 +61,24 @@ public class Main {
 			System.out.println(e.getMessage());
 		}
 		
-		Fita f2 = null;
+		FitaGenerosDao daoFg = new FitaGenerosDao();
+		FitaGenero fg = new FitaGenero(f, new Genero(1));
+		try {
+			fg = daoFg.insert(fg);
+			System.out.println(fg);
+		} catch (DaoExceptions e) {
+			System.out.println(e.getMessage());
+		}
+		
+		fg = new FitaGenero(f, new Genero(10));
+		try {
+			fg = daoFg.insert(fg);
+			System.out.println(f);
+		} catch (DaoExceptions e) {
+			System.out.println(e.getMessage());
+		}
+		
+		/*Fita f2 = null;
 		try {
 			f2 = daoFita.insert(f2);
 			System.out.println(f);
@@ -80,6 +101,6 @@ public class Main {
 			
 		} catch (DaoExceptions e) {
 			System.out.println(e.getMessage());
-		}
+		}*/
 	}
 }
