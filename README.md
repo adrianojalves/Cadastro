@@ -13,6 +13,6 @@ Prof. Adriano de Jesus Alves
 - [x] Criar conexão com o BD
 - [x] Criar classes de modelo
 - [x] Criar classes de DAO
-- [ ] Criar tela principal
+- [x] Criar tela principal
 - [ ] Criar pesquisa e cadastro de generos
 - [ ] Criar pesquisa e cadastro de fitas
