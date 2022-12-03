@@ -1,0 +1,10 @@
+CREATE TABLE fitas_generos(
+	cod_fita integer NOT NULL,
+	cod_genero integer NOT NULL,
+	CONSTRAINT fk_fitas FOREIGN KEY (cod_fita) REFERENCES fitas (id)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE,
+	CONSTRAINT fk_generos FOREIGN KEY (cod_genero) REFERENCES generos (id)
+		ON UPDATE CASCADE
+		ON DELETE RESTRICT
+);
