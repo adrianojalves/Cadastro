@@ -30,8 +30,13 @@ public class ConnectionBD {
 	public static void createConnection() {
 		String driverName = "com.mysql.cj.jdbc.Driver"; //classe do driver de conexão
 		
-        String stringConexao = "jdbc:mysql://45.15.24.198:33306/Cadastro?" +
-                				"user=alunos&password=@alun0s&useSSL=false";
+		
+		//Caso dê erro de conexão por conta de Timezone tentar o seguinte código
+				//String stringConexao = "jdbc:mysql://localhost/projeto?"
+				//		+ "user=root&password=pamonha&useSSL=false&useTimezone=true&serverTimezone=UTC";
+		//alterar ip, usuário e senha para conexão
+        String stringConexao = "jdbc:mysql://localhost:3306/Cadastro?" +
+                				"user=root&password=pamonha&useSSL=false";
 
         try {
 			Class.forName(driverName).newInstance(); //Carregando driver
