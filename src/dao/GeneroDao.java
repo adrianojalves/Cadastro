@@ -3,6 +3,8 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.cj.util.StringUtils;
 
@@ -84,6 +86,45 @@ public class GeneroDao {
 		}
 		
 		return g;
+	}
+	
+	public List<Genero> list(String nome) throws DaoExceptions{
+		
+		StringBuilder sb = new StringBuilder("SELECT * FROM "+TABLE);
+		
+		if(!StringUtils.isNullOrEmpty(nome)) {
+			sb.append(" WHERE ");
+			sb.append(COLUNAS.nome.name()+" like ?");
+		}
+		
+		sb.append(" ORDER BY "+COLUNAS.nome.name());
+		
+		List<Genero> lista = new ArrayList<>();
+		
+		try {
+			PreparedStatement ps = new ConnectionBD().getPrepareStatement(sb.toString());
+			
+			if(!StringUtils.isNullOrEmpty(nome))
+				ps.setString(1, "%"+nome+"%");
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Genero g = new Genero();
+				g.setId(rs.getInt(COLUNAS.id.name()));
+				g.setNome(rs.getString(COLUNAS.nome.name()));
+				
+				lista.add(g);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DaoExceptions("Erro ao executar comando no BD");
+		} finally {
+			ConnectionBD.close();
+		}
+		
+		return lista;
 	}
 	
 	public boolean update(Genero g) throws DaoExceptions{

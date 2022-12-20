@@ -34,6 +34,7 @@ public class Principal extends JFrame implements ActionListener{
 
 	private void criarMenu() {
 		generos = new JMenuItem("Gêneros");
+		generos.addActionListener(this);
 		
 		fitas = new JMenuItem("Fitas");
 		
@@ -60,6 +61,9 @@ public class Principal extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(sobre)) {
 			new Sobre().setVisible(true);
+		}
+		else if(e.getSource().equals(generos)) {
+			new TelaListaGeneros().setVisible(true);
 		}
 	}
 
